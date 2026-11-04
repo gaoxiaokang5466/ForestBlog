@@ -9,6 +9,16 @@
 </rapid:override>
 <rapid:override name="header-style">
     <style>
+        /* 操作列按钮间距 8px */
+        .page-action-btns {
+            display: inline-flex;
+            gap: 8px;
+        }
+
+        /* 表头背景 */
+        .layui-table thead tr {
+            background-color: #f5f5f5;
+        }
     </style>
 </rapid:override>
 
@@ -71,10 +81,12 @@
                             </c:choose>
                         </td>
                         <td>
-                            <a href="/admin/page/edit/${p.pageId}"
-                               class="layui-btn layui-btn-mini">编辑</a>
-                            <a href="/admin/page/delete/${p.pageId}"
-                               class="layui-btn layui-btn-danger layui-btn-mini" onclick="return confirmDelete()">删除</a>
+                            <span class="page-action-btns">
+                                <a href="/admin/page/edit/${p.pageId}"
+                                   class="layui-btn layui-btn-mini">编辑</a>
+                                <a href="/admin/page/delete/${p.pageId}"
+                                   class="layui-btn layui-btn-danger layui-btn-mini" onclick="return confirmDelete()">删除</a>
+                            </span>
                         </td>
                     </tr>
                 </c:if>
