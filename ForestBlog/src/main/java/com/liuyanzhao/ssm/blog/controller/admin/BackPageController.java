@@ -114,7 +114,7 @@ public class BackPageController {
     public String editPageSubmit(Page page) {
         Page checkPage = pageService.getPageByKey(null, page.getPageKey());
         //判断别名是否存在且不是这篇文章
-        if (Objects.equals(checkPage.getPageId(), page.getPageId())) {
+        if (checkPage == null || Objects.equals(checkPage.getPageId(), page.getPageId())) {
             page.setPageUpdateTime(new Date());
             pageService.updatePage(page);
         }
