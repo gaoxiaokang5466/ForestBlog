@@ -17,6 +17,14 @@ class RepositoryLayoutTest(unittest.TestCase):
     def test_maven_project_exists(self):
         self.assertTrue((ROOT / "ForestBlog" / "pom.xml").is_file())
 
+    def test_source_tree_exists(self):
+        self.assertTrue((ROOT / "ForestBlog" / "src").is_dir())
+
+    def test_database_dump_exists(self):
+        dump = ROOT / "forest_blog.sql"
+        self.assertTrue(dump.is_file())
+        self.assertGreater(dump.stat().st_size, 0)
+
 
 if __name__ == "__main__":
     unittest.main()
