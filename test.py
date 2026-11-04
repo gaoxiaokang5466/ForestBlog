@@ -25,6 +25,11 @@ class RepositoryLayoutTest(unittest.TestCase):
         self.assertTrue(dump.is_file())
         self.assertGreater(dump.stat().st_size, 0)
 
+    def test_uploaded_images_exist(self):
+        uploads = ROOT / "uploads"
+        self.assertTrue(uploads.is_dir())
+        self.assertTrue(any(uploads.glob("*.png")))
+
 
 if __name__ == "__main__":
     unittest.main()
